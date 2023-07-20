@@ -1,5 +1,6 @@
 import requests
 import time
+from parsel import Selector
 
 
 # Requisito 1
@@ -21,8 +22,16 @@ def fetch(url):
 
 # Requisito 2
 def scrape_updates(html_content):
-    """Seu código deve vir aqui"""
-    raise NotImplementedError
+    selector = Selector(html_content)
+    cards = selector.css(".entry-preview")
+
+    news = []
+
+    for card in cards:
+        url = card.css('a::attr(href)').get()
+        news.append(url)
+
+    return news
 
 
 # Requisito 3
