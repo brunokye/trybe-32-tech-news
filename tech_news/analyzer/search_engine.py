@@ -32,5 +32,11 @@ def search_by_date(date):
 
 # Requisito 9
 def search_by_category(category):
-    """Seu código deve vir aqui"""
-    raise NotImplementedError
+    data = search_news({"category": {"$regex": category, "$options": "i"}})
+    news_list = []
+
+    for news in data:
+        form = (news["title"], news["url"])
+        news_list.append(form)
+
+    return news_list
