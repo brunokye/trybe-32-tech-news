@@ -25,7 +25,7 @@ Clone o projeto
 Entre no diretório
 
 ```bash
-  cd trybe-32-tech-news
+  cd trybe-32-tech-news/
 ```
 
 Crie e ative ambiente virtual
